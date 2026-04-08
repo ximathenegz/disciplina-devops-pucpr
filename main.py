@@ -9,6 +9,6 @@ def read_root():
 
 # http://127.0.0.1:8000/teste1
 
-@app.get("funcaoteste")
+@app.get("/funcaoteste")
 async def funcaoteste():
     return {"teste": "deu certo"}
