@@ -1,9 +1,13 @@
 name: Continuous Integration
+
 on:
   pull_request:
     branches:
       - main
 
+permissions:
+  contents: read
+  security-events: write
 
 jobs:
   build:
@@ -21,6 +25,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v5
       - # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
         name: Set up QEMU
@@ -32,5 +38,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           context: .
+          file: ./Dockerfile
           push: false
           tags: user/app:latest
