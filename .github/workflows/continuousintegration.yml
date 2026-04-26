@@ -4,9 +4,7 @@ on:
   pull_request:
     branches:
       - main
-  push:
-    branches:
-      - main
+
 
 permissions:
   contents: read
@@ -44,15 +42,3 @@ jobs:
           file: ./Dockerfile
           push: false
           tags: user/app:latest
-
-  discord:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push'
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run Discord Webhook
-        uses: Sniddl/discord-commits@v1.8
-        with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          template: "avatar-with-link"
-          include-extras: true
