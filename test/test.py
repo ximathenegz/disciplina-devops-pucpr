@@ -3,8 +3,9 @@ from src.main import *
 from unittest.mock import patch
 
 
-def test_root():
-    result = root()
+@pytest.mark.asyncio
+async def test_root():
+    result = await root()
     assert result == {"message": " Hello World"}
 
 
