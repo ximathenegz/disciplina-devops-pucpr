@@ -1,6 +1,6 @@
+import pytest
 from src.main import *
 from unittest.mock import patch
-import pytest
 
 
 def test_root():
