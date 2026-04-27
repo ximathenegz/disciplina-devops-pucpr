@@ -24,7 +24,7 @@ async def funcaoteste():
 async def create_estudante(estudante: Estudante):
     return estudante
 
-@app.put("/estudantes/update/{ìd_estudante}")
+@app.put("/estudantes/update/{id_estudante}")
 async def update_estudante(id_estudante: int):
     return id_estudante > 0
 
