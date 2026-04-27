@@ -12,12 +12,12 @@ class Estudante(BaseModel):
 
 
 @app.get("/helloworld")
-def root():
+async def root():
     return {"message": " Hello World"}
 
 
 @app.get("/funcaoteste")
-def funcaoteste():
+async def funcaoteste():
     return {
         "teste": True,
         "num_aleatorio": random.randint(0, 57000)
@@ -25,15 +25,15 @@ def funcaoteste():
 
 
 @app.post("/estudantes/cadastro")
-def create_estudante(estudante: Estudante):
+async def create_estudante(estudante: Estudante):
     return estudante
 
 
 @app.put("/estudantes/update/{id_estudante}")
-def update_estudante(id_estudante: int):
+async def update_estudante(id_estudante: int):
     return id_estudante > 0
 
 
 @app.delete("/estudantes/delete/{id_estudante}")
-def delete_estudante(id_estudante: int):
+async def delete_estudante(id_estudante: int):
     return id_estudante > 0
